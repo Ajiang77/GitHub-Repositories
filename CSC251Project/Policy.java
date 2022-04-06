@@ -1,6 +1,7 @@
 import java.lang.Math;
 public class Policy
 {
+   //instance field that has the primitive data type
    private int policyNumber;//variable declared for policy number.
    private String providerName;//name of the provider.
    private String fName;//Policyholder’s First Name
@@ -10,6 +11,13 @@ public class Policy
    private double height;//Policyholder’s Height (in inches) name declared.
    private double weight;//Policyholder’s Weight (in pounds) name declared.
    private double BMI;//BMI Variable declared.
+   private double InsurancePrice;
+   
+   //"Added static field to track number of Policy objects"
+   //static field, shared among all instances of the class
+   private static int policyObject_Count = 0;
+   private static int smoker = 0;
+   private static int nonsmoker = 0;
    
    //no-arg constructor
    public Policy()
@@ -22,6 +30,7 @@ public class Policy
       smokingStatus = "";
       height = 0;
       weight = 0;
+      policyObject_Count++;
    }
 
    //Constructor - the constuctor accepts all fields arguments to construct
@@ -36,6 +45,14 @@ public class Policy
       smokingStatus = smokStatus;
       height = h;
       weight = w;
+      policyObject_Count++;
+      
+      if(this.smokingStatus.equals("smoker")){
+         smoker++;
+      }
+      if(this.smokingStatus.equals("non-smoker")){
+         nonsmoker++;
+      }
    }
    
    //These are the Mutator (set) Methods:
@@ -136,6 +153,12 @@ public class Policy
       return BMI;
    }
    
+   //getter for return the policyObject_Count of the policy objects created.
+   public int getpolicyObject_Count()
+   {
+      return policyObject_Count; 
+   }
+   
    //getter for returns the price of the insurance policy
    public double getInsurancePrice()
    {
@@ -157,6 +180,32 @@ public class Policy
       }
       return baseFee;
    }
+   
+  /**
+      "Added toString method"
+      toString method
+      @return - A string containing the policy information
+  */ 
+      
+  /** We make use of the String.format method to format the policyholder's BMI and policy price. See Chapter 3 for information about this method.*/
+   
+   public String toString()
+   {
+      return String.format("\nPolicy Number: " + policyNumber +          
+                           "\nProvider Name: " + providerName +
+                           "\nPolicyholder's First Name: " + fName +
+                           "\nPolicyholder's Last Name:  " + lName +            
+                           "\nPolicyholder's Age:  " + age +
+                           "\nPolicyholder's Smoking Status: " + smokingStatus +
+                           "\nPolicyholder's Height:  " + height + " inches" +            
+                           "\nPolicyholder's Weight:  " + weight + " pounds" +            
+                           "\nPolicyholder's BMI: %,.2f\n", BMI + 
+                           "\nPolicy Price: $%,.2f \n", InsurancePrice + "There were " + policyObject_Count + " Policy objects created." + 
+                           "\n\nThe number of policies with a smoker is: " + smoker + 
+                           "\nThe number of policies with a non-smoker is: " + nonsmoker);
+   }
+   
+//close the class
 }
 
 

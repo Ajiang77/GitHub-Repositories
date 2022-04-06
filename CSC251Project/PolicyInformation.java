@@ -1,14 +1,18 @@
+//Project Part 3 Updated Policy Information Demo    
 import java.util.*;
 import java.io.*;
 import java.util.Scanner;
  
-public class Policy_Information
+public class PolicyInformation
 
 { //open the class container
 
 
    public static void main(String[] args) throws IOException
    { //open the main method                              
+       
+     //instantiate a Policy object
+     //Policy pol = new Policy(Policy.POLICY_OBJECTS);
       
       /*The book uses the "throws IOException" option in the main method header. In this exercise we use a "try" and "catch" process. We "try" to open the file and process it, but if something goes wrong, 
         an IOException will be "thrown" and we can "catch" it and deal with the problem. By taking this approach instead of adding a "throws IOException" clause to the main method header, we can 
@@ -85,6 +89,16 @@ public class Policy_Information
             insurancePrice += policies.get(i).getInsurancePrice();//add the insurance price of the current policy to our accumulator 
             
          }  
+         //Display the smoker, non-smoker and the total policy objects
+         //System.out.println(policyList.get(1));
+         
+         //scanFile.close();
+         
+     
+     //public static Policy newPolicy()
+     //{
+        // Scanner key = new Scanner (System.in);
+     //}
            
          //System.out.printf("Policyholder's BMI: $%,.2f \n", BMI); //print out the person BMI
          //System.out.printf("Policy Price: $%,.2f \n", insurancePrice); //print out the total policy price

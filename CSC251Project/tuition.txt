@@ -1,4 +1,4 @@
-CSC 143
+  CSC 143
 Introduction to Object Oriented Programming
 5
 3
